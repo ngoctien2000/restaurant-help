@@ -3,578 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Hướng dẫn Thực đơn</title>
+    <title>Hướng dẫn Quản lý Thực đơn</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
-    <style>
-      :root {
-        --nav-bg: #4e2a11;
-        --nav-hover: #6a3a18;
-        --nav-border: rgba(255, 255, 255, 0.08);
-        --panel: rgba(255, 249, 242, 0.94);
-        --text: #2d1c12;
-        --muted: #6f5a49;
-        --brown: #5a3e2b;
-        --brown-light: #9b6a45;
-        --shadow: 0 16px 42px rgba(25, 13, 8, 0.22);
-        --blue: #2b6cb0;
-        --red: #c53030;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 80px;
-      }
-
-      body {
-        margin: 0;
-        font-family: "Segoe UI", Arial, sans-serif;
-        color: var(--text);
-        min-height: 100vh;
-        overflow-x: hidden;
-        background: #1e140d;
-      }
-
-      .bg {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        background-image: url("img/trangchu.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        transform: scale(1.02);
-      }
-
-      .bg::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          180deg,
-          rgba(25, 14, 8, 0.36),
-          rgba(25, 14, 8, 0.24) 35%,
-          rgba(25, 14, 8, 0.3)
-        );
-      }
-
-      .app {
-        position: relative;
-        z-index: 1;
-        min-height: 100vh;
-      }
-
-      .navbar {
-        height: 64px;
-        background: var(--nav-bg);
-        border-bottom: 1px solid var(--nav-border);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 14px 0 16px;
-        position: fixed;
-        top: 0;
-        z-index: 50;
-        width: 100%;
-        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.26);
-        font-family: "Segoe UI", Arial, sans-serif;
-      }
-
-      .brand {
-        flex: 0 0 auto;
-        font-size: 22px;
-        font-weight: 900;
-        color: #f7d28f;
-        letter-spacing: 0.4px;
-        white-space: nowrap;
-        text-transform: none;
-        padding-right: 12px;
-      }
-
-      .nav-left,
-      .nav-right {
-        display: flex;
-        align-items: center;
-        height: 100%;
-      }
-
-      .nav-left {
-        flex: 1;
-        justify-content: center;
-      }
-
-      .menu-group {
-        position: relative;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        padding: 0;
-      }
-
-      .menu-button {
-        border: 0;
-        background: transparent;
-        height: 64px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 14px;
-        font-weight: 800;
-        color: #f7d28f;
-        cursor: pointer;
-        padding: 0 22px;
-        white-space: nowrap;
-        text-decoration: none;
-        letter-spacing: 0.8px;
-        text-transform: uppercase;
-        border-left: 1px solid rgba(255, 255, 255, 0.08);
-        transition:
-          background 0.2s ease,
-          color 0.2s ease;
-        font-family: "Segoe UI", Arial, sans-serif;
-      }
-
-      .menu-group:last-child .menu-button {
-        border-right: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .menu-button:hover,
-      .menu-group.open .menu-button,
-      .menu-group.current .menu-button {
-        background: rgba(255, 255, 255, 0.06);
-        color: #ffecc6;
-      }
-
-      .caret {
-        font-size: 12px;
-        transform: translateY(1px);
-      }
-
-      .dropdown {
-        position: absolute;
-        top: 64px;
-        left: 0;
-        min-width: 210px;
-        background: #4e2a11;
-        border: 1px solid var(--nav-border);
-        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
-        display: none;
-        padding: 0;
-        z-index: 30;
-      }
-
-      .menu-group.open .dropdown {
-        display: block;
-      }
-
-      .dropdown a {
-        display: block;
-        color: #f7e6c7;
-        text-decoration: none;
-        padding: 11px 16px;
-        font-weight: 700;
-        font-size: 15px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        background: rgba(255, 255, 255, 0.03);
-        font-family: "Segoe UI", Arial, sans-serif;
-      }
-
-      .dropdown a:last-child {
-        border-bottom: 0;
-      }
-
-      .dropdown a:hover {
-        background: var(--nav-hover);
-      }
-
-      .nav-right {
-        color: #f7d28f;
-        font-weight: 700;
-        font-size: 16px;
-        padding: 0 12px;
-        height: 100%;
-        white-space: nowrap;
-      }
-
-      .home-link {
-        color: #f7d28f;
-        font-weight: 700;
-        text-decoration: none;
-        padding: 0 16px;
-        display: flex;
-        align-items: center;
-        height: 64px;
-        transition: 0.2s ease;
-        font-family: "Segoe UI", Arial, sans-serif;
-      }
-
-      .home-link:hover {
-        background: rgba(255, 255, 255, 0.08);
-        color: #ffecc6;
-      }
-
-      .material-symbols-outlined {
-        font-variation-settings:
-          "FILL" 0,
-          "wght" 400,
-          "GRAD" 0,
-          "opsz" 24;
-      }
-
-      .glass-panel {
-        background: rgba(255, 249, 242, 0.94);
-        backdrop-filter: blur(8px);
-      }
-
-      .layout {
-        display: flex;
-        gap: 22px;
-        padding: 22px;
-        align-items: flex-start;
-        margin-top: 64px;
-      }
-
-      .sidebar {
-        width: 270px;
-        flex: 0 0 270px;
-        background: #fff;
-        color: var(--text);
-        border-radius: 22px;
-        box-shadow: var(--shadow);
-        padding: 18px 16px 16px;
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        position: sticky;
-        top: 76px;
-      }
-
-      .sidebar h4 {
-        margin: 10px 10px 4px;
-        color: var(--brown-light);
-        font-size: 16px;
-        font-weight: bold;
-      }
-
-      .sidebar p.version {
-        margin: 0 10px 16px;
-        color: var(--muted);
-        font-size: 12px;
-      }
-
-      .sidebar button {
-        width: 100%;
-        padding: 12px 14px;
-        margin-bottom: 8px;
-        border: 0;
-        color: var(--text);
-        text-align: left;
-        cursor: pointer;
-        border-radius: 10px;
-        background: transparent;
-        font-size: 15px;
-        transition: 0.2s ease;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .sidebar button:hover {
-        background: rgba(0, 0, 0, 0.04);
-      }
-
-      .sidebar button.active {
-        background: linear-gradient(180deg, var(--brown-light), #7c5336);
-        color: white;
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
-      }
-
-      .sidebar button .material-symbols-outlined {
-        font-size: 20px;
-      }
-
-      .content {
-        flex: 1;
-        min-width: 0;
-      }
-
-      .card {
-        background: var(--panel);
-        border: 1px solid rgba(255, 255, 255, 0.32);
-        border-radius: 22px;
-        box-shadow: var(--shadow);
-        padding: 28px 30px 22px;
-        backdrop-filter: blur(10px);
-        margin-bottom: 22px;
-      }
-
-      .title {
-        font-size: 30px;
-        font-weight: 800;
-        margin: 0 0 10px;
-        color: var(--brown);
-      }
-
-      .subtitle {
-        margin: 0 0 24px;
-        color: var(--muted);
-        line-height: 1.7;
-        font-size: 15px;
-      }
-
-      .step-container {
-        position: relative;
-        padding: 24px;
-        background: rgba(255, 255, 255, 0.4);
-        border: 1px solid rgba(134, 97, 71, 0.15);
-        border-radius: 16px;
-        margin-bottom: 32px;
-      }
-
-      .step-container:not(:last-child)::after {
-        content: "";
-        position: absolute;
-        left: 42px;
-        top: 60px;
-        bottom: -32px;
-        width: 2px;
-        background: var(--brown-light);
-        opacity: 0.3;
-        z-index: 0;
-      }
-
-      .step {
-        display: flex;
-        gap: 15px;
-        align-items: flex-start;
-        margin-bottom: 18px;
-        position: relative;
-        z-index: 1;
-        scroll-margin-top: 80px;
-      }
-
-      .circle {
-        width: 36px;
-        height: 36px;
-        flex: 0 0 36px;
-        border-radius: 50%;
-        background: linear-gradient(180deg, var(--brown-light), #7f5538);
-        color: white;
-        display: grid;
-        place-items: center;
-        font-weight: 800;
-        box-shadow: 0 10px 20px rgba(95, 64, 45, 0.28);
-      }
-
-      .step h3 {
-        margin: 0 0 6px;
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--brown);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .step p {
-        margin: 4px 0 0;
-        line-height: 1.8;
-        font-size: 16px;
-        color: var(--text);
-      }
-
-      .step ul {
-        margin: 12px 0 0 20px !important;
-        padding: 0 !important;
-        list-style-type: decimal !important;
-        color: var(--text);
-        line-height: 1.8;
-        font-size: 15px;
-      }
-
-      .step li {
-        margin-bottom: 8px;
-        padding-left: 4px;
-        color: var(--text);
-        line-height: 1.6;
-      }
-
-      .status-blue {
-        color: var(--blue);
-        font-weight: 700;
-      }
-
-      .status-red {
-        color: var(--red);
-        font-weight: 700;
-      }
-
-      .panel-image {
-        margin: 18px 0 22px;
-        border-radius: 16px;
-        overflow: hidden;
-        border: 1px dashed rgba(90, 62, 43, 0.35);
-        background: rgba(255, 255, 255, 0.4);
-        min-height: 260px;
-        display: grid;
-        place-items: center;
-        color: #7d6655;
-        font-weight: 700;
-        text-align: center;
-        padding: 18px;
-      }
-
-      .panel-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .metrics-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin: 16px 0;
-      }
-
-      .metric-card {
-        background: rgba(0, 0, 0, 0.04);
-        padding: 20px;
-        border-radius: 12px;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-      }
-
-      .metric-title {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 8px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .metric-value {
-        font-size: 28px;
-        font-weight: 800;
-        color: var(--brown);
-      }
-
-      .metric-value.blue {
-        color: var(--blue);
-      }
-
-      .metric-value.red {
-        color: var(--red);
-      }
-
-      .metric-currency {
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--muted);
-        margin-left: 4px;
-      }
-
-      .note {
-        margin-top: 18px;
-        padding: 14px 16px;
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.48);
-        border: 1px solid rgba(134, 97, 71, 0.14);
-        color: #5e4737;
-        font-size: 14px;
-        line-height: 1.7;
-      }
-
-      @media (max-width: 980px) {
-        .layout {
-          flex-direction: column;
-        }
-        .sidebar {
-          width: 100%;
-          position: relative;
-          top: 0;
-        }
-        .metrics-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 700px) {
-        .navbar {
-          height: auto;
-          min-height: 64px;
-          flex-wrap: wrap;
-          justify-content: flex-start;
-          padding: 8px 10px;
-          gap: 8px;
-        }
-        .brand {
-          font-size: 18px;
-          padding-right: 0;
-          width: 100%;
-        }
-        .nav-left {
-          justify-content: flex-start;
-          flex-wrap: wrap;
-          width: 100%;
-        }
-        .menu-button {
-          height: 46px;
-          font-size: 13px;
-          padding: 0 14px;
-        }
-        .dropdown {
-          top: 46px;
-          min-width: 170px;
-        }
-        .home-link {
-          width: 100%;
-          justify-content: flex-end;
-          font-size: 14px;
-          padding: 0;
-        }
-        .layout {
-          padding: 12px;
-          gap: 12px;
-        }
-        .card {
-          padding: 22px 18px 18px;
-          border-radius: 18px;
-        }
-        .title {
-          font-size: 24px;
-        }
-        .dropdown a {
-          font-size: 14px;
-        }
-      }
-
-      .screenshot-wrapper {
-        margin-left: 51px;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        overflow: hidden;
-        background: #fff;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        aspect-ratio: 16 / 7;
-        max-width: 92%;
-      }
-
-      .screenshot-wrapper img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover;
-        display: block;
-      }
-    </style>
+    <link href="css/gui.css" rel="stylesheet" />
   </head>
   <body>
     <div aria-hidden="true" class="bg"></div>
@@ -582,59 +16,55 @@
     <div class="app">
       <header class="navbar">
         <!-- Logo -->
+        <img src="img/logo.png" alt="Logo" class="brand-logo" />
         <div class="brand">NHÀ HÀNG HY VỌNG</div>
 
         <!-- Menu giữa -->
         <div class="nav-left">
-          <!-- Hệ thống -->
-          <div class="menu-group" data-menu>
-            <button class="menu-button" data-toggle type="button">
+          <div class="menu-group" data-menu="">
+            <button class="menu-button" data-toggle="" type="button">
               Hệ thống <span class="caret">▼</span>
             </button>
             <div class="dropdown">
               <a href="tai-khoan.html">Quản lý tài khoản</a>
+              <a href="quan-ly-ca.html">Quản lý ca</a>
             </div>
           </div>
 
-          <!-- Danh mục -->
-          <div class="menu-group" data-menu>
-            <button class="menu-button" data-toggle type="button">
+          <div class="menu-group" data-menu="">
+            <button class="menu-button" data-toggle="" type="button">
               Danh mục <span class="caret">▼</span>
             </button>
             <div class="dropdown">
               <a href="thuc-don.html">Thực đơn</a>
-              <a href="#">Khu vực</a>
+              <a href="khu-vuc.html">Khu vực</a>
               <a href="nhan-vien.html">Nhân viên</a>
-              <a href="#">Khách hàng</a>
+              <a href="khach-hang.html">Khách hàng</a>
               <a href="khuyen-mai.html">Khuyến mãi</a>
-              <a href="#">Bàn</a>
+              <a href="ban.html">Bàn</a>
             </div>
           </div>
 
-          <!-- Xử lý -->
-          <div class="menu-group" data-menu>
-            <button class="menu-button" data-toggle type="button">
+          <div class="menu-group" data-menu="">
+            <button class="menu-button" data-toggle="" type="button">
               Xử lý <span class="caret">▼</span>
             </button>
             <div class="dropdown">
-              <a href="#">Order</a>
+              <a href="order.html">Order</a>
               <a href="dat-ban.html">Đặt bàn</a>
-              <a href="#">Hóa đơn</a>
+              <a href="hoa-don.html">Hóa đơn</a>
             </div>
           </div>
 
-          <!-- Tra cứu -->
           <div class="menu-group">
             <a class="menu-button" href="tra-cuu.html">Tra cứu</a>
           </div>
 
-          <!-- Thống kê -->
           <div class="menu-group current">
             <a class="menu-button" href="thong-ke.html">Thống kê</a>
           </div>
         </div>
 
-        <!-- User -->
         <div class="nav-right">
           <a class="home-link" href="index.html">Trang chủ</a>
         </div>
@@ -678,33 +108,63 @@
                     <span
                       class="material-symbols-outlined"
                       style="font-variation-settings: &quot;FILL&quot; 1"
-                      >add_circle</span
                     >
+                      add_circle
+                    </span>
                     Thêm món ăn
                   </h3>
-                  <p>
-                    Khi thêm món, hệ thống tự phát sinh mã món theo thứ tự nên
-                    không cần nhập mã. Người dùng chỉ cần nhập đầy đủ các thông
-                    tin còn lại.
-                  </p>
-                  <ul>
-                    <li>Mã món được tự động sinh.</li>
-                    <li>
-                      Bắt buộc nhập: tên món, đơn giá, loại món, trạng thái và
-                      mô tả.
-                    </li>
-                    <li>Ảnh món có thể để trống nếu chưa có hình.</li>
-                    <li>
-                      Nhấn dấu <b>+</b> cạnh combobox loại món để thêm loại món
-                      mới.
-                    </li>
-                    <li>Nhấn <b>Lưu</b> để hoàn tất thêm món.</li>
-                  </ul>
-                </div>
-              </div>
 
-              <div class="panel-image">
-                <div>Chèn ảnh giao diện thêm món tại đây</div>
+                  <p>
+                    <i
+                      >Chức năng này dùng để thêm món mới vào thực đơn của nhà
+                      hàng. Hệ thống sẽ tự động phát sinh mã món nên người dùng
+                      không cần nhập thủ công.</i
+                    >
+                  </p>
+
+                  <!-- PHẦN 1 -->
+
+                  <ol style="padding-left: 22px; margin: 0">
+                    <li>Nhấn nút <b>+ Thêm</b> trên giao diện thực đơn.</li>
+                  </ol>
+
+                  <div class="panel-image">
+                    <img
+                      src="img/them-monan-1.png"
+                      alt="Mở chức năng thêm món"
+                      style="width: 100%; border-radius: 10px"
+                    />
+                  </div>
+
+                  <ol start="2" style="padding-left: 22px; margin: 0">
+                    <li>
+                      Bắt buộc nhập:
+                      <b>Tên món</b>, <b>Giá gốc</b>, <b>Giá bán</b>,
+                      <b>Loại món</b>,
+                      <b>Trạng thái</b>
+                      và <b>Mô tả</b>và quan trọng là <b>Ảnh món ăn</b>.
+                    </li>
+                    <li>
+                      Sau khi nhập xong thông tin, nhấn <b>Lưu</b> để hoàn tất
+                      thêm món.
+                    </li>
+                  </ol>
+
+                  <div class="panel-image">
+                    <img
+                      src="img/them-monan-23.png"
+                      alt="Nhập thông tin món ăn"
+                      style="
+                        width: 58%;
+                        max-width: 700px;
+                        border-radius: 14px;
+                        display: block;
+                        margin: 20px auto;
+                        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+                      "
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -720,31 +180,66 @@
                     >
                     Cập nhật món ăn
                   </h3>
-                  <p>
-                    Chọn một card món ăn rồi nhấn cập nhật để chỉnh sửa toàn bộ
-                    thông tin của món đó.
-                  </p>
-                  <ul>
-                    <li>
-                      Có thể cập nhật ảnh, tên món, đơn giá, loại món, trạng
-                      thái và mô tả.
-                    </li>
-                    <li>
-                      Nếu đổi trạng thái từ <b>Đang phục vụ</b> sang
-                      <b>Ngừng bán</b>, card món sẽ chuyển sang
-                      <span class="status-red">màu đỏ</span>.
-                    </li>
-                    <li>
-                      Món đã ngừng bán vẫn hiển thị trên giao diện để dễ kiểm
-                      tra.
-                    </li>
-                    <li>Nhấn <b>Cập nhật</b> để lưu thay đổi.</li>
-                  </ul>
-                </div>
-              </div>
 
-              <div class="panel-image">
-                <div>Chèn ảnh giao diện cập nhật món tại đây</div>
+                  <p>
+                    <i>
+                      Chọn một card món ăn rồi nhấn cập nhật để chỉnh sửa toàn
+                      bộ thông tin của món đó.
+                    </i>
+                  </p>
+
+                  <ol style="padding-left: 22px; margin: 0">
+                    <li style="margin-bottom: 14px">
+                      Nhấn chọn một card món ăn rồi nhấn <b>Cập nhật</b> để mở
+                      giao diện cập nhật món.
+                    </li>
+                  </ol>
+
+                  <div class="panel-image" style="margin: 12px 0 20px">
+                    <img
+                      src="img/capnhat-monan.png"
+                      alt="Chọn card món ăn và nhấn cập nhật"
+                      style="width: 100%; border-radius: 10px; display: block"
+                    />
+                  </div>
+
+                  <ol start="2" style="padding-left: 22px; margin: 0">
+                    <li style="margin-bottom: 14px">
+                      Cập nhật ở nhiều trường khác nhau.
+                    </li>
+                  </ol>
+
+                  <div class="panel-image" style="margin: 12px 0 0">
+                    <img
+                      src="img/capnhat-monan-2.png"
+                      alt="Cập nhật ở nhiều trường khác nhau"
+                      style="
+                        width: 58%;
+                        max-width: 700px;
+                        border-radius: 14px;
+                        display: block;
+                        margin: 20px auto;
+                        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+                      "
+                    />
+                  </div>
+                  <ol start="3" style="padding-left: 22px; margin: 0">
+                    <li>
+                      <span class="text-danger"><b>Chú ý:</b></span
+                      >Nếu cập nhật trạng thái thành "Ngừng bán", món ăn sẽ trên
+                      giao diện sẽ hiện
+                      <span class="badge bg-danger">màu đỏ.</span>
+                    </li>
+                  </ol>
+
+                  <div class="panel-image" style="margin: 12px 0 0">
+                    <img
+                      src="img/capnha-monan-tt.png"
+                      alt="Cập nhật ở nhiều trường khác nhau"
+                      style="width: 100%; border-radius: 10px"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -756,24 +251,33 @@
                     <span
                       class="material-symbols-outlined"
                       style="font-variation-settings: &quot;FILL&quot; 1"
-                      >zoom_in</span
                     >
+                      zoom_in
+                    </span>
                     Xem chi tiết món
                   </h3>
+
                   <p>
-                    Chọn một card món rồi nhấn chi tiết để mở giao diện xem
-                    thông tin đầy đủ của món ăn.
+                    <i>
+                      Chọn một card món rồi nhấn chi tiết để mở giao diện xem
+                      thông tin đầy đủ của món ăn.
+                    </i>
                   </p>
+
                   <ul>
                     <li>Chỉ xem thông tin, không cho sửa dữ liệu.</li>
                     <li>Giao diện chi tiết giống form xem một món.</li>
                     <li>Có thể đóng cửa sổ chi tiết sau khi kiểm tra xong.</li>
                   </ul>
-                </div>
-              </div>
 
-              <div class="panel-image">
-                <div>Chèn ảnh giao diện chi tiết món tại đây</div>
+                  <div class="panel-image" style="margin-top: 18px">
+                    <img
+                      src="img/xemchitiet-monan.png"
+                      alt="Xem chi tiết món"
+                      style="width: 100%; border-radius: 10px; display: block"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -785,38 +289,98 @@
                     <span
                       class="material-symbols-outlined"
                       style="font-variation-settings: &quot;FILL&quot; 1"
-                      >category</span
                     >
+                      category
+                    </span>
                     Quản lý loại món
                   </h3>
+
                   <p>
-                    Danh sách tab loại món cho phép thêm loại mới, chỉnh sửa và
-                    xóa riêng từng loại món ăn.
+                    <i
+                      >Danh sách tab loại món cho phép thêm loại mới, cập nhật
+                      tên loại và xóa riêng từng loại món ăn.</i
+                    >
                   </p>
+
+                  <h4 style="margin-top: 22px; color: #7b4b2a">
+                    a. Thêm loại món mới
+                  </h4>
+
                   <ul>
+                    <li>Nhấn dấu <b>+</b> cạnh combobox <b>Loại món</b>.</li>
+                    <li>Nhập tên loại món mới cần thêm.</li>
                     <li>
-                      Nhấn dấu <b>+</b> cạnh combobox loại món để thêm loại mới.
-                    </li>
-                    <li>
-                      Sau khi thêm xong, tab loại đó sẽ xuất hiện ngay trên
-                      thanh danh mục.
-                    </li>
-                    <li>Nút <b>✏️</b> dùng để cập nhật tên loại món riêng.</li>
-                    <li>
-                      Nút <b>🗑️</b> dùng để xóa loại món, nhưng chỉ được phép
-                      xóa khi toàn bộ món trong tab đó đều ở trạng thái
-                      <b>Ngừng bán</b>.
-                    </li>
-                    <li>
-                      Nếu còn món đang phục vụ thì hệ thống sẽ báo không cho
-                      xóa.
+                      Sau khi thêm thành công, loại món mới sẽ xuất hiện trên
+                      thanh tab loại món.
                     </li>
                   </ul>
-                </div>
-              </div>
 
-              <div class="panel-image">
-                <div>Chèn ảnh tab loại món tại đây</div>
+                  <div class="panel-image">
+                    <img
+                      src="img/them-loaimon.png"
+                      alt="Thêm loại món"
+                      style="
+                        width: 58%;
+                        max-width: 700px;
+                        border-radius: 14px;
+                        display: block;
+                        margin: 20px auto;
+                        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+                      "
+                    />
+                  </div>
+
+                  <h4 style="margin-top: 32px; color: #7b4b2a">
+                    b. Cập nhật loại món
+                  </h4>
+
+                  <ul>
+                    <li>Chọn tab loại món cần cập nhật.</li>
+                    <li>
+                      Nhấn nút <b>✏️</b> để mở chức năng đổi tên loại món.
+                    </li>
+                    <li>Nhập tên loại món mới rồi nhấn <b>OK</b>.</li>
+                    <li>
+                      Sau khi cập nhật thành công, tên tab loại món sẽ được thay
+                      đổi ngay trên giao diện.
+                    </li>
+                  </ul>
+
+                  <div class="panel-image">
+                    <img
+                      src="img/capnhat-loaimon.png"
+                      alt="Cập nhật loại món"
+                      style="width: 100%; border-radius: 10px"
+                    />
+                  </div>
+
+                  <h4 style="margin-top: 32px; color: #7b4b2a">
+                    c. Xóa loại món
+                  </h4>
+
+                  <ul>
+                    <li>Chọn tab loại món muốn xóa.</li>
+                    <li>Nhấn nút <b>🗑️</b> trên thanh tab loại món.</li>
+                    <li>Hệ thống sẽ hiển thị hộp thoại xác nhận xóa.</li>
+                    <li>Nhấn <b>Yes</b> để xác nhận xóa loại món.</li>
+                    <li>
+                      Sau khi xóa thành công, tab loại món sẽ biến mất khỏi giao
+                      diện thực đơn.
+                    </li>
+                    <li style="color: #c0392b; font-weight: 700">
+                      Chú ý: chỉ xóa khi trạng thái của tất cả các món ăn trong
+                      loại món đó đều là "Ngừng bán".
+                    </li>
+                  </ul>
+
+                  <div class="panel-image">
+                    <img
+                      src="img/xoa-loaimon.png"
+                      alt="Xóa loại món"
+                      style="width: 100%; border-radius: 10px"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -828,14 +392,19 @@
                     <span
                       class="material-symbols-outlined"
                       style="font-variation-settings: &quot;FILL&quot; 1"
-                      >search</span
                     >
+                      search
+                    </span>
                     Tìm kiếm và lọc giá
                   </h3>
+
                   <p>
-                    Có thể tra cứu nhanh món ăn bằng ô tìm tên món hoặc lọc theo
-                    khoảng giá.
+                    <i
+                      >Có thể tra cứu nhanh món ăn bằng ô tìm tên món hoặc lọc
+                      theo khoảng giá.</i
+                    >
                   </p>
+
                   <ul>
                     <li>Tìm kiếm theo tên món.</li>
                     <li>Lọc theo giá từ và giá đến.</li>
@@ -846,17 +415,16 @@
                       Kết quả sẽ được lọc ngay trên danh sách card món ăn.
                     </li>
                   </ul>
+
+                  <div class="panel-image" style="margin-top: 18px">
+                    <img
+                      src="img/tracuu-monan.png"
+                      alt="Tìm kiếm và lọc giá"
+                      style="width: 100%; border-radius: 10px"
+                    />
+                  </div>
                 </div>
               </div>
-
-              <div class="panel-image">
-                <div>Chèn ảnh thanh tìm kiếm tại đây</div>
-              </div>
-            </div>
-
-            <div class="note">
-              Gợi ý: bạn có thể thay từng ảnh minh họa vào đúng vị trí các khung
-              chấm để bài hướng dẫn giống với giao diện thật của hệ thống.
             </div>
           </div>
         </section>

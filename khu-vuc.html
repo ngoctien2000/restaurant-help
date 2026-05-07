@@ -3,14 +3,29 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Hướng dẫn Thống kê</title>
+    <title>Hướng dẫn quản lý Khu vực</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
     <link href="css/gui.css" rel="stylesheet" />
-  </head>
+    <!-- <style>
+      .panel-image,
+      .screenshot-wrapper {
+        height: auto !important;
+        overflow: visible !important;
+        margin-top: 10px;
+      }
 
+      .panel-image img,
+      .screenshot-wrapper img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+    </style> -->
+  </head>
   <body>
     <div aria-hidden="true" class="bg"></div>
 
@@ -20,19 +35,18 @@
         <div class="brand">NHÀ HÀNG HY VỌNG</div>
 
         <div class="nav-left">
-          <div class="menu-group" data-menu="">
-            <button class="menu-button" data-toggle="" type="button">
+          <div class="menu-group" data-menu>
+            <button class="menu-button" data-toggle type="button">
               Hệ thống <span class="caret">▼</span>
             </button>
             <div class="dropdown">
               <a href="tai-khoan.html">Quản lý tài khoản</a>
               <a href="quan-ly-ca.html">Quản lý ca</a>
-              <a href="dang-nhap.html">Đăng nhập</a>
             </div>
           </div>
 
-          <div class="menu-group" data-menu="">
-            <button class="menu-button" data-toggle="" type="button">
+          <div class="menu-group current" data-menu>
+            <button class="menu-button" data-toggle type="button">
               Danh mục <span class="caret">▼</span>
             </button>
             <div class="dropdown">
@@ -45,8 +59,8 @@
             </div>
           </div>
 
-          <div class="menu-group" data-menu="">
-            <button class="menu-button" data-toggle="" type="button">
+          <div class="menu-group" data-menu>
+            <button class="menu-button" data-toggle type="button">
               Xử lý <span class="caret">▼</span>
             </button>
             <div class="dropdown">
@@ -60,7 +74,7 @@
             <a class="menu-button" href="tra-cuu.html">Tra cứu</a>
           </div>
 
-          <div class="menu-group current">
+          <div class="menu-group">
             <a class="menu-button" href="thong-ke.html">Thống kê</a>
           </div>
         </div>
@@ -72,29 +86,31 @@
 
       <main class="layout">
         <aside class="sidebar">
-          <h4>Help Center</h4>
+          <h4>Quản lý khu vực</h4>
           <p class="version">V1.2.0</p>
+
           <button class="active" data-scroll="step-1">
-            <span class="material-symbols-outlined">schedule</span> Thống kê
-            theo ca
+            <span class="material-symbols-outlined">add_circle</span>
+            Thêm khu vực
           </button>
+
           <button data-scroll="step-2">
-            <span class="material-symbols-outlined">analytics</span> Phân tích
-            bán hàng
+            <span class="material-symbols-outlined">edit</span>
+            Sửa khu vực
           </button>
+
           <button data-scroll="step-3">
-            <span class="material-symbols-outlined">receipt_long</span> Tổng kết
-            bán hàng
+            <span class="material-symbols-outlined">delete</span>
+            Xóa khu vực
           </button>
         </aside>
 
         <section class="content">
-          <div class="card" id="guide-baocao">
-            <div class="title">Hướng dẫn Thống kê</div>
+          <div class="card" id="guide-khuvuc">
+            <div class="title">Hướng dẫn Quản lý khu vực</div>
             <div class="subtitle">
-              Tài liệu hướng dẫn chi tiết dành cho quản lý và chủ quán cách theo
-              dõi thống kê theo ca, phân tích bán hàng và xem tổng kết doanh
-              thu.
+              Tài liệu hướng dẫn dành cho nhân viên và quản lý cách thêm mới,
+              chỉnh sửa và xóa khu vực trong hệ thống.
             </div>
 
             <div class="step-container">
@@ -105,30 +121,30 @@
                     <span
                       class="material-symbols-outlined"
                       style="font-variation-settings: &quot;FILL&quot; 1"
-                      >schedule</span
                     >
-                    Thống kê theo ca
+                      add_circle
+                    </span>
+                    Thêm khu vực
                   </h3>
+
                   <p>
                     <i
-                      >Kiểm tra doanh thu chi tiết trong ca làm việc, theo dõi
-                      biểu đồ doanh thu theo giờ và xác nhận tổng kết ca.</i
+                      >Chức năng này dùng để tạo mới một khu vực phục vụ trong
+                      nhà hàng như Sân thượng, Tầng 1 hoặc Tầng 2.</i
                     >
                   </p>
+
                   <ul>
+                    <li>Nhấn nút <b>Thêm khu vực</b>.</li>
                     <li>
-                      Mở màn hình Thống kê theo ca để xem thông tin mở ca (Tạo
-                      lúc, Tiền đầu ca).
+                      Nhập thông tin vào các trường cần thiết cho khu vực cần
+                      tạo mới.
                     </li>
-                    <li>Theo dõi biểu đồ Doanh thu trong ca theo giờ.</li>
-                    <li>
-                      Thực hiện <b>Xác nhận tổng kết ca</b> cuối mỗi buổi làm ,
-                      hệ thống sẽ tính toán và hiển thị
-                      <b>Số đầu ca, Tiền mặt, Chuyển khoản và Tổng thu.</b>
-                    </li>
+                    <li>Nhấn <b>OK</b> để hoàn tất thêm khu vực.</li>
                   </ul>
+
                   <div class="panel-image">
-                    <img alt="Thống kê theo ca" src="img/tong-ket-ca.png" />
+                    <img src="img/them-khuvuc.png" alt="Thêm khu vực" />
                   </div>
                 </div>
               </div>
@@ -142,37 +158,27 @@
                     <span
                       class="material-symbols-outlined"
                       style="font-variation-settings: &quot;FILL&quot; 1"
-                      >analytics</span
                     >
-                    Phân tích bán hàng
+                      edit
+                    </span>
+                    Sửa khu vực
                   </h3>
+
                   <p>
                     <i
-                      >Bảng phân tích chi tiết doanh thu, chi phí nguyên liệu và
-                      lợi nhuận.</i
+                      >Chức năng này cho phép cập nhật tên khu vực hoặc thông
+                      tin liên quan khi cần thay đổi.</i
                     >
                   </p>
+
                   <ul>
-                    <li>
-                      Xem tóm tắt tổng Doanh thu, Chi phí nguyên liệu và Lợi
-                      nhuận gộp ở đầu trang.
-                    </li>
-                    <li>
-                      Theo dõi biểu đồ Doanh thu - Chi phí - Lợi nhuận để có cái
-                      nhìn tổng quan.và bảng tóm tắt lời lỗ để đưa ra quyết định
-                      kinh doanh.
-                    </li>
-                    <li>
-                      Kiểm tra Bảng phân tích món ăn chi tiết: bao gồm
-                      <b>SL bán, Giá vốn, Doanh thu, Chi phí, và Lợi nhuận</b>
-                      cho từng món ăn.
-                    </li>
+                    <li>Chọn khu vực cần sửa từ danh sách.</li>
+                    <li>Nhấn nút <b>Sửa khu vực</b>.</li>
+                    <li>Nhập thông tin mới rồi nhấn <b>OK</b>.</li>
                   </ul>
+
                   <div class="panel-image">
-                    <img
-                      alt="Phân tích bán hàng"
-                      src="img/phan-tich-ban-hang.png"
-                    />
+                    <img src="img/sua-khuvuc.png" alt="Sửa khu vực" />
                   </div>
                 </div>
               </div>
@@ -186,38 +192,31 @@
                     <span
                       class="material-symbols-outlined"
                       style="font-variation-settings: &quot;FILL&quot; 1"
-                      >receipt_long</span
                     >
-                    Tổng kết bán hàng
+                      delete
+                    </span>
+                    Xóa khu vực
                   </h3>
+
                   <p>
                     <i
-                      >Xem tóm tắt hoạt động kinh doanh trong khoảng thời gian
-                      đã chọn và xuất báo cáo chi tiết.</i
+                      >Chức năng này dùng để xóa khu vực không còn sử dụng trong
+                      hệ thống.</i
                     >
                   </p>
+
                   <ul>
-                    <li>
-                      Xem nhanh các chỉ số: Số món đã bán, Tổng số lượng, Tổng
-                      doanh thu, và Món bán chạy nhất.
-                    </li>
-                    <li>
-                      Kiểm tra Danh sách chi tiết các món đã bán với số lượng,
-                      đơn giá và tổng cộng.
-                    </li>
-                    <li>
-                      Xem biểu đồ cột thể hiện Top Món Bán Chạy ở góc phải.
-                    </li>
-                    <li>
-                      Sử dụng chức năng <b>Xuất báo cáo</b> để tải dữ liệu về
-                      máy.
-                    </li>
+                    <li>Chọn khu vực muốn xóa.</li>
+                    <li>Nhấn nút <b>Xóa khu vực</b>.</li>
+                    <li><b>OK</b> để hoàn tất thao tác.</li>
+                    <p style="color: #c0392b; font-weight: 700">
+                      Chú ý: chỉ xóa khi khu vực đó không còn chứa bất kỳ bàn
+                      nào.
+                    </p>
                   </ul>
+
                   <div class="panel-image">
-                    <img
-                      alt="Tổng kết bán hàng"
-                      src="img/tong-ket-ban-hang.png"
-                    />
+                    <img src="img/xoa-khuvuc.png" alt="Xóa khu vực" />
                   </div>
                 </div>
               </div>

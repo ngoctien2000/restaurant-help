@@ -3,36 +3,51 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Hướng dẫn Quản lý Khuyến mãi</title>
+    <title>Hướng dẫn Quản lý Hóa đơn</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
     <link href="css/gui.css" rel="stylesheet" />
+    <!-- <style>
+      .panel-image,
+      .screenshot-wrapper {
+        height: auto !important;
+        overflow: visible !important;
+        margin-top: 10px;
+      }
+
+      .panel-image img,
+      .screenshot-wrapper img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+    </style> -->
   </head>
   <body>
     <div aria-hidden="true" class="bg"></div>
 
     <div class="app">
       <header class="navbar">
-        <!-- Logo -->
         <img src="img/logo.png" alt="Logo" class="brand-logo" />
         <div class="brand">NHÀ HÀNG HY VỌNG</div>
 
-        <!-- Menu giữa -->
         <div class="nav-left">
-          <div class="menu-group" data-menu="">
-            <button class="menu-button" data-toggle="" type="button">
+          <div class="menu-group" data-menu>
+            <button class="menu-button" data-toggle type="button">
               Hệ thống <span class="caret">▼</span>
             </button>
             <div class="dropdown">
               <a href="tai-khoan.html">Quản lý tài khoản</a>
               <a href="quan-ly-ca.html">Quản lý ca</a>
+              <a href="dang-nhap.html">Đăng nhập</a>
             </div>
           </div>
 
-          <div class="menu-group" data-menu="">
-            <button class="menu-button" data-toggle="" type="button">
+          <div class="menu-group" data-menu>
+            <button class="menu-button" data-toggle type="button">
               Danh mục <span class="caret">▼</span>
             </button>
             <div class="dropdown">
@@ -45,8 +60,8 @@
             </div>
           </div>
 
-          <div class="menu-group" data-menu="">
-            <button class="menu-button" data-toggle="" type="button">
+          <div class="menu-group" data-menu>
+            <button class="menu-button" data-toggle type="button">
               Xử lý <span class="caret">▼</span>
             </button>
             <div class="dropdown">
@@ -72,91 +87,74 @@
 
       <main class="layout">
         <aside class="sidebar">
-          <h4>Quy trình Khuyến mãi</h4>
+          <h4>Quản lý hóa đơn</h4>
           <p class="version">V1.2.0</p>
 
           <button class="active" data-scroll="step-1">
-            <span class="material-symbols-outlined">add_circle</span>
-            Thêm
+            <span class="material-symbols-outlined">receipt_long</span>
+            Chi tiết HD
           </button>
 
           <button data-scroll="step-2">
             <span class="material-symbols-outlined">edit</span>
-            Cập nhật
+            Cập nhật hóa đơn
           </button>
 
           <button data-scroll="step-3">
-            <span class="material-symbols-outlined">search</span>
-            Chi tiết & Tra cứu
+            <span class="material-symbols-outlined">filter_alt</span>
+            Lọc HD
           </button>
 
           <button data-scroll="step-4">
-            <span class="material-symbols-outlined">block</span>
-            Xóa / Ngưng
+            <span class="material-symbols-outlined">search</span>
+            Tra cứu hóa đơn
           </button>
         </aside>
 
         <section class="content">
-          <div class="card" id="guide-khuyenmai">
-            <div class="title">Hướng dẫn Quy trình Khuyến mãi</div>
-
+          <div class="card" id="guide-hoadon">
+            <div class="title">Hướng dẫn Quản lý hóa đơn</div>
             <div class="subtitle">
-              Tài liệu hướng dẫn dành cho quản lý và nhân viên về cách sử dụng
-              chức năng quản lý khuyến mãi trong hệ thống.
+              Tài liệu hướng dẫn dành cho nhân viên và quản lý cách xem chi
+              tiết, cập nhật, lọc và tra cứu hóa đơn trong hệ thống.
             </div>
 
-            <!-- STEP 1 -->
             <div class="step-container">
               <div class="step" id="step-1">
                 <div class="circle">1</div>
-
                 <div>
                   <h3>
                     <span
                       class="material-symbols-outlined"
                       style="font-variation-settings: &quot;FILL&quot; 1"
                     >
-                      add_circle
+                      receipt_long
                     </span>
-
-                    Thêm khuyến mãi
+                    Chi tiết hóa đơn
                   </h3>
 
                   <p>
                     <i
-                      >Chức năng thêm khuyến mãi cho phép tạo các chương trình
-                      khuyến mãi mới trong hệ thống.</i
+                      >Chức năng này giúp xem đầy đủ thông tin của một hóa đơn
+                      đã tạo trong hệ thống.</i
                     >
                   </p>
 
                   <ul>
-                    <li>Mã khuyến mãi được tự động phát sinh.</li>
-
-                    <li>
-                      Nhập đầy đủ:
-                      <b>
-                        tên khuyến mãi, loại khuyến mãi, giá trị, điều kiện hóa
-                        đơn, thời gian áp dụng và trạng thái.
-                      </b>
-                    </li>
-
-                    <li>Thời gian kết thúc phải lớn hơn thời gian bắt đầu.</li>
-
-                    <li>Nhấn <b>Lưu / OK</b> để hoàn tất thêm khuyến mãi.</li>
+                    <li>Chọn một hóa đơn trong danh sách.</li>
+                    <li>Nhấn <b>Chi tiết Hóa Đơn</b> để mở cửa sổ chi tiết.</li>
                   </ul>
 
                   <div class="panel-image">
-                    <div><img src="img/them-km.png" alt="" srcset="" /></div>
+                    <img src="img/chitiet-hoadon.png" alt="Chi tiết hóa đơn" />
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- STEP 2 -->
             <div class="step-container">
               <div class="step" id="step-2">
                 <div class="circle">2</div>
-
                 <div>
                   <h3>
                     <span
@@ -165,46 +163,70 @@
                     >
                       edit
                     </span>
-
-                    Cập nhật khuyến mãi
+                    Cập nhật hóa đơn
                   </h3>
 
                   <p>
                     <i
-                      >Chức năng này cho phép chỉnh sửa thông tin của khuyến mãi
-                      đã tồn tại trong hệ thống.</i
+                      >Chức năng này cho phép cập nhật các thông tin liên quan
+                      đến hóa đơn khi cần chỉnh sửa.</i
                     >
                   </p>
 
                   <ul>
+                    <li>Chọn hóa đơn cần cập nhật trong danh sách.</li>
                     <li>
-                      Có thể cập nhật:
-                      <b>
-                        tên, giá trị, thời gian áp dụng, trạng thái và ghi chú.
-                      </b>
+                      Điều chỉnh thông tin khách hàng, hoặc phướng thức TT hoặc
+                      trạng thái.
                     </li>
-
-                    <li>Mã khuyến mãi không được phép chỉnh sửa.</li>
-
-                    <li>
-                      Hệ thống sẽ kiểm tra tính hợp lệ trước khi lưu dữ liệu.
-                    </li>
-
-                    <li>Nhấn <b>Lưu / OK</b> để hoàn tất cập nhật.</li>
+                    <li>Nhấn <b>Cập nhật</b> để lưu thay đổi.</li>
                   </ul>
 
                   <div class="panel-image">
-                    <div><img src="img/sua-km.png" alt="" /></div>
+                    <img src="img/capnhat-hd.png" alt="Cập nhật hóa đơn" />
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- STEP 3 -->
             <div class="step-container">
               <div class="step" id="step-3">
                 <div class="circle">3</div>
+                <div>
+                  <h3>
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                    >
+                      filter_alt
+                    </span>
+                    Lọc hóa đơn
+                  </h3>
 
+                  <p>
+                    <i
+                      >Chức năng này hỗ trợ lọc hóa đơn theo thời gian, trạng
+                      thái hoặc các tiêu chí liên quan.</i
+                    >
+                  </p>
+
+                  <ul>
+                    <li>
+                      Lọc theo khoảng thời gian hoặc theo trạng thái thanh toán.
+                    </li>
+                    <li>Nhấn <b>Lọc</b> để áp dụng các tiêu chí đã chọn.</li>
+                  </ul>
+
+                  <div class="panel-image">
+                    <img src="img/loc-hoadon.png" alt="Lọc hóa đơn" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-container">
+              <div class="step" id="step-4">
+                <div class="circle">4</div>
                 <div>
                   <h3>
                     <span
@@ -213,107 +235,23 @@
                     >
                       search
                     </span>
-
-                    Tra cứu và xem chi tiết
+                    Tra cứu hóa đơn
                   </h3>
 
                   <p>
                     <i
-                      >Chức năng này giúp tìm kiếm nhanh và xem đầy đủ thông tin
-                      khuyến mãi trong hệ thống.</i
+                      >Chức năng này giúp tìm nhanh hóa đơn theo mã, khách hàng,
+                      bàn hoặc số điện thoại.</i
                     >
                   </p>
 
                   <ul>
-                    <li>
-                      Có thể tra cứu theo:
-                      <b>mã khuyến mãi hoặc tên khuyến mãi.</b>
-                    </li>
-
-                    <li>
-                      Hỗ trợ lọc theo trạng thái:
-                      <b>
-                        Đang áp dụng, Chưa áp dụng, Hết hạn hoặc Ngưng áp dụng.
-                      </b>
-                    </li>
-
-                    <li>
-                      Khi chọn một dòng trong bảng, khung chi tiết sẽ hiển thị
-                      đầy đủ thông tin của khuyến mãi đó.
-                    </li>
-
-                    <li>Có thể kết hợp tìm kiếm và lọc trạng thái cùng lúc.</li>
+                    <li>Nhập từ khóa vào 1 trường nhập liệu bất kỳ.</li>
+                    <li>Nhấn <b>Tra cứu</b> để tìm kiếm.</li>
                   </ul>
 
                   <div class="panel-image">
-                    <div>
-                      <img src="img/loc-khuyenmai.png" alt="" srcset="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- STEP 4 -->
-            <div class="step-container">
-              <div class="step" id="step-4">
-                <div class="circle">4</div>
-
-                <div>
-                  <h3>
-                    <span
-                      class="material-symbols-outlined"
-                      style="font-variation-settings: &quot;FILL&quot; 1"
-                    >
-                      block
-                    </span>
-
-                    Xóa / Ngưng áp dụng
-                  </h3>
-
-                  <p>
-                    <i
-                      >Chức năng này dùng để xử lý các khuyến mãi không còn sử
-                      dụng.</i
-                    >
-                  </p>
-
-                  <ul>
-                    <li>
-                      Chọn 1 khuyến mãi cần xóa hoặc ngưng áp dụng trong danh
-                      sách.
-                    </li>
-
-                    <li>
-                      Hệ thống sẽ hiển thị hộp thoại xác nhận trước khi thực
-                      hiện.
-                    </li>
-
-                    <li>
-                      Các khuyến mãi đã ngưng vẫn được lưu để phục vụ thống kê.
-                    </li>
-
-                    <li>Nhấn <b>Yes</b> để xác nhận thao tác.</li>
-                    <p>
-                      a. Sẽ <b>Xóa</b> khi điều kiện không có hóa đơn nào áp
-                      dụng khuyến mãi.
-                      <br />
-                      b. Sẽ <b>Ngừng áp dụng</b> khi đã có hóa đơn sử dụng
-                      khuyến mãi này để lưu lại trong CSDL
-                    </p>
-                  </ul>
-
-                  <div class="panel-image" style="display: flex; gap: 10px">
-                    <img
-                      src="img/xoa-km.png"
-                      alt="Phiếu tạm tính"
-                      style="width: 50% !important"
-                    />
-                    <img
-                      src="img/ngung.png"
-                      alt="Hóa đơn thanh toán"
-                      style="width: 50% !important"
-                    />
+                    <img src="img/tracuu-hd.png" alt="Tra cứu hóa đơn" />
                   </div>
                 </div>
               </div>
