@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="vi">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hướng dẫn - Tra cứu</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Hướng dẫn Màn hình Khách</title>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
@@ -16,11 +17,9 @@
 
     <div class="app">
       <header class="navbar">
-        <!-- Logo -->
         <img src="img/logo.png" alt="Logo" class="brand-logo" />
         <div class="brand">NHÀ HÀNG HY VỌNG</div>
 
-        <!-- Menu giữa -->
         <div class="nav-left">
           <div class="menu-group" data-menu="">
             <button class="menu-button" data-toggle="" type="button">
@@ -43,7 +42,6 @@
               <a href="khu-vuc.html">Khu vực</a>
               <a href="nhan-vien.html">Nhân viên</a>
               <a href="khach-hang.html">Khách hàng</a>
-              <a href="khuyen-mai.html">Khuyến mãi</a>
               <a href="ban.html">Bàn</a>
             </div>
           </div>
@@ -60,11 +58,11 @@
             </div>
           </div>
 
-          <div class="menu-group">
+          <div class="menu-group current">
             <a class="menu-button" href="tra-cuu.html">Tra cứu</a>
           </div>
 
-          <div class="menu-group current">
+          <div class="menu-group">
             <a class="menu-button" href="thong-ke.html">Thống kê</a>
           </div>
         </div>
@@ -76,130 +74,105 @@
 
       <main class="layout">
         <aside class="sidebar">
-          <h4>TRA CỨU</h4>
-          <p class="version">V1.2.0</p>
+          <h4>Quy trình Khách</h4>
+          <p class="version">V1.0.0</p>
+
           <button class="active" data-scroll="step-1">
-            <span class="material-symbols-outlined">search</span> Tìm món ăn
+            <span class="material-symbols-outlined">payments</span>Thanh toán
           </button>
+
           <button data-scroll="step-2">
-            <span class="material-symbols-outlined">table_restaurant</span> Tìm
-            bàn
-          </button>
-          <button data-scroll="step-3">
-            <span class="material-symbols-outlined">person_search</span> Tìm
-            khách hàng
-          </button>
-          <button data-scroll="step-4">
-            <span class="material-symbols-outlined">local_offer</span> Tìm
-            khuyến mãi
+            <span class="material-symbols-outlined">qr_code_scanner</span>Quét
+            mã QR
           </button>
         </aside>
 
         <section class="content">
-          <div class="card">
-            <div class="title">Hướng dẫn tra cứu</div>
+          <div class="card" id="guide-order">
+            <div class="title">Hướng dẫn Màn hình cho khách</div>
             <div class="subtitle">
-              Hệ thống hỗ trợ tra cứu nhanh thông tin món ăn, bàn, khách hàng và
-              khuyến mãi.
+              Tài liệu hướng dẫn khách hàng thực hiện thanh toán và quét mã QR
+              trên hệ thống của nhà hàng.
             </div>
 
-            <div class="step-container">
-              <div class="step" id="step-1">
+            <!-- BƯỚC 1: THANH TOÁN -->
+            <div class="step-container" id="step-1">
+              <div class="step">
                 <div class="circle">1</div>
                 <div>
                   <h3>
                     <span
                       class="material-symbols-outlined"
                       style="font-variation-settings: &quot;FILL&quot; 1"
-                      >search</span
-                    >
-                    Tìm kiếm món ăn
+                      >payments</span
+                    >Thanh toán hóa đơn bằng TIỀN MẶT
                   </h3>
-                  <p>Tìm nhanh món ăn theo tên, mã món, loại món hoặc giá.</p>
+                  <p>
+                    <i
+                      >Khách hàng kiểm tra lại thông tin hóa đơn trước khi thanh
+                      toán:</i
+                    >
+                  </p>
                   <ul>
-                    <li>Nhập tên hoặc mã món.</li>
-                    <li>Lọc theo loại món.</li>
-                    <li>Lọc theo giá.</li>
+                    <li>
+                      Hệ thống hiển thị tổng tiền cần thanh toán và các món đã
+                      dùng.
+                    </li>
+                    <li>
+                      Khách có thể chọn hình thức thanh toán và kiểm tra lại số
+                      tiền.
+                    </li>
+                    <li>
+                      Nhân viên hỗ trợ xác nhận lại thông tin trước khi hoàn tất
+                      giao dịch.
+                    </li>
                   </ul>
+
                   <div class="panel-image">
-                    <img alt="Tìm món ăn" src="img/tim-monan.png" />
+                    <img src="img/khach-tienmat.png" alt="Thanh toán hóa đơn" />
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="step-container">
-              <div class="step" id="step-2">
+            <!-- BƯỚC 2: QUÉT MÃ QR -->
+            <div class="step-container" id="step-2">
+              <div class="step">
                 <div class="circle">2</div>
                 <div>
                   <h3>
                     <span
                       class="material-symbols-outlined"
                       style="font-variation-settings: &quot;FILL&quot; 1"
-                      >table_restaurant</span
-                    >
-                    Tìm kiếm bàn
+                      >qr_code_scanner</span
+                    >Quét mã QR
                   </h3>
                   <p>
-                    Tra cứu nhanh tình trạng và thông tin bàn trong nhà hàng.
+                    <i
+                      >Dùng khi khách chọn thanh toán bằng chuyển khoản / quét
+                      mã QR:</i
+                    >
                   </p>
                   <ul>
-                    <li>Nhập mã bàn.</li>
-                    <li>Lọc trạng thái bàn.</li>
-                    <li>Xem bàn đang trống hay đã có khách.</li>
+                    <li>
+                      Màn hình sẽ hiển thị mã QR tương ứng với số tiền cần thanh
+                      toán.
+                    </li>
+                    <li>
+                      Khách mở ứng dụng ngân hàng và quét mã để thực hiện chuyển
+                      khoản.
+                    </li>
+                    <li>
+                      Sau khi giao dịch hoàn tất, hệ thống cập nhật trạng thái
+                      thanh toán.
+                    </li>
                   </ul>
-                  <div class="panel-image">
-                    <img alt="Tìm bàn" src="img/tim-ban.png" />
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="step-container">
-              <div class="step" id="step-3">
-                <div class="circle">3</div>
-                <div>
-                  <h3>
-                    <span
-                      class="material-symbols-outlined"
-                      style="font-variation-settings: &quot;FILL&quot; 1"
-                      >person_search</span
-                    >
-                    Tìm kiếm khách hàng
-                  </h3>
-                  <p>Theo dõi thông tin khách hàng và lịch sử giao dịch.</p>
-                  <ul>
-                    <li>Nhập số điện thoại hoặc tên khách hàng.</li>
-                    <li>Xem lịch sử giao dịch.</li>
-                    <li>Kiểm tra thông tin liên hệ.</li>
-                  </ul>
                   <div class="panel-image">
-                    <img alt="Tìm khách hàng" src="img/tim-khachhang.png" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="step-container">
-              <div class="step" id="step-4">
-                <div class="circle">4</div>
-                <div>
-                  <h3>
-                    <span
-                      class="material-symbols-outlined"
-                      style="font-variation-settings: &quot;FILL&quot; 1"
-                      >local_offer</span
-                    >
-                    Tìm kiếm khuyến mãi
-                  </h3>
-                  <p>Tra cứu nhanh các chương trình khuyến mãi đang áp dụng.</p>
-                  <ul>
-                    <li>Lọc theo thời gian.</li>
-                    <li>Xem trạng thái áp dụng.</li>
-                    <li>Theo dõi khuyến mãi đang hoạt động.</li>
-                  </ul>
-                  <div class="panel-image">
-                    <img alt="Tìm khuyến mãi" src="img/tim-khuyenmai.png" />
+                    <img
+                      src="img/khach-chuyenkhoan.png"
+                      alt="Thanh toán hóa đơn"
+                    />
                   </div>
                 </div>
               </div>

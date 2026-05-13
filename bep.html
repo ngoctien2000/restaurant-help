@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Hướng dẫn Quy trình Bếp</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link href="css/gui.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div aria-hidden="true" class="bg"></div>
+
+    <div class="app">
+      <header class="navbar">
+        <img src="img/logo.png" alt="Logo" class="brand-logo" />
+        <div class="brand">NHÀ HÀNG HY VỌNG</div>
+
+        <div class="nav-left">
+          <div class="menu-group" data-menu="">
+            <button class="menu-button" data-toggle="" type="button">
+              Hệ thống <span class="caret">▼</span>
+            </button>
+            <div class="dropdown">
+              <a href="tai-khoan.html">Quản lý tài khoản</a>
+              <a href="quan-ly-ca.html">Quản lý ca</a>
+              <a href="dang-nhap.html">Đăng nhập</a>
+              <a href="manhinh-khach.html">Màn hình cho khách</a>
+            </div>
+          </div>
+
+          <div class="menu-group" data-menu="">
+            <button class="menu-button" data-toggle="" type="button">
+              Danh mục <span class="caret">▼</span>
+            </button>
+            <div class="dropdown">
+              <a href="thuc-don.html">Thực đơn</a>
+              <a href="khu-vuc.html">Khu vực</a>
+              <a href="nhan-vien.html">Nhân viên</a>
+              <a href="khach-hang.html">Khách hàng</a>
+              <a href="khuyen-mai.html">Khuyến mãi</a>
+              <a href="ban.html">Bàn</a>
+            </div>
+          </div>
+
+          <div class="menu-group current" data-menu="">
+            <button class="menu-button" data-toggle="" type="button">
+              Xử lý <span class="caret">▼</span>
+            </button>
+            <div class="dropdown">
+              <a href="order.html">Order</a>
+              <a href="dat-ban.html">Đặt bàn</a>
+              <a href="bep.html">Bếp</a>
+              <a href="hoa-don.html">Hóa đơn</a>
+            </div>
+          </div>
+
+          <div class="menu-group">
+            <a class="menu-button" href="tra-cuu.html">Tra cứu</a>
+          </div>
+
+          <div class="menu-group">
+            <a class="menu-button" href="thong-ke.html">Thống kê</a>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <a class="home-link" href="index.html">Trang chủ</a>
+        </div>
+      </header>
+
+      <main class="layout">
+        <aside class="sidebar">
+          <h4>QUY TRÌNH BẾP</h4>
+          <p class="version">Hướng dẫn sử dụng hệ thống</p>
+
+          <button class="active" data-scroll="step-1">
+            <span class="material-symbols-outlined">receipt_long</span>
+            Xác nhận Order
+          </button>
+
+          <button data-scroll="step-2">
+            <span class="material-symbols-outlined">restaurant</span>
+            Xác nhận Chế biến
+          </button>
+        </aside>
+
+        <section class="content">
+          <div class="card">
+            <div class="title">Hướng dẫn Quy trình Bếp</div>
+
+            <div class="subtitle">
+              Màn hình bếp hỗ trợ tiếp nhận các món từ nhân viên order, gộp các
+              món trùng nhau từ nhiều bàn, cộng tổng số lượng và xác nhận chế
+              biến theo thứ tự thời gian giảm dần.
+            </div>
+
+            <div class="step-container">
+              <div class="step" id="step-1">
+                <div class="circle">1</div>
+
+                <div>
+                  <h3>
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                    >
+                      receipt_long
+                    </span>
+                    Xác nhận Order cho nhân viên
+                  </h3>
+
+                  <p>
+                    <i>
+                      Đây là khu vực hiển thị các món vừa được nhân viên order
+                      gửi xuống bếp.
+                    </i>
+                  </p>
+
+                  <ul>
+                    <li>
+                      Các món giống nhau nhưng đến từ nhiều mã bàn khác nhau sẽ
+                      được hệ thống gộp chung để bếp xử lý một lần.
+                    </li>
+                    <li>
+                      Cột <b>TỔNG</b> hiển thị tổng số lượng của món sau khi
+                      cộng từ nhiều bàn.
+                    </li>
+                    <li>
+                      Cột <b>THỜI GIAN</b> giúp nhân viên bếp theo dõi món nào
+                      được gọi gần nhất.
+                    </li>
+                    <li>
+                      Mã bàn vẫn được hiển thị để biết món thuộc bàn nào, tránh
+                      nhầm lẫn khi chế biến.
+                    </li>
+                    <li>
+                      Danh sách được sắp xếp theo thứ tự thời gian giảm dần, món
+                      mới nhất nằm ở trên cùng.
+                    </li>
+                  </ul>
+
+                  <p>
+                    Khi kiểm tra xong, nhân viên bếp bấm nút xác nhận để chuyển
+                    món sang trạng thái đang chế biến.
+                  </p>
+
+                  <!-- Chèn ảnh minh họa ở cuối khung nội dung này -->
+                </div>
+              </div>
+            </div>
+
+            <div class="step-container">
+              <div class="step" id="step-2">
+                <div class="circle">2</div>
+
+                <div>
+                  <h3>
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                    >
+                      restaurant
+                    </span>
+                    Xác nhận Chế biến xong
+                  </h3>
+
+                  <p>
+                    <i>
+                      Đây là khu vực dành cho các món đã hoàn thành và đang chờ
+                      giao cho phục vụ.
+                    </i>
+                  </p>
+
+                  <ul>
+                    <li>
+                      Khi món đã chế biến xong, bếp bấm xác nhận để chuyển sang
+                      trạng thái chờ giao.
+                    </li>
+                    <li>
+                      Danh sách vẫn giữ nguyên thông tin món, mã bàn và tổng số
+                      lượng để dễ đối chiếu.
+                    </li>
+                    <li>
+                      Các món cùng loại vẫn được gộp chung để bếp theo dõi tập
+                      trung và xử lý nhanh hơn.
+                    </li>
+                    <li>
+                      Trạng thái này giúp phân biệt rõ món nào đã xong, món nào
+                      còn đang làm.
+                    </li>
+                  </ul>
+
+                  <p>
+                    Sau khi xác nhận, món sẽ chuyển sang khu vực chờ phục vụ
+                    mang ra bàn.
+                  </p>
+
+                  <!-- Chèn ảnh minh họa ở cuối khung nội dung này -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      document.querySelectorAll("[data-scroll]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = document.getElementById(
+            btn.getAttribute("data-scroll"),
+          );
+          if (target)
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+          document
+            .querySelectorAll(".sidebar button")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+        });
+      });
+
+      document.querySelectorAll("[data-toggle]").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const group = btn.closest(".menu-group");
+          const isOpen = group.classList.contains("open");
+          document
+            .querySelectorAll(".menu-group")
+            .forEach((g) => g.classList.remove("open"));
+          if (!isOpen) group.classList.add("open");
+          e.stopPropagation();
+        });
+      });
+
+      document.addEventListener("click", () => {
+        document
+          .querySelectorAll(".menu-group")
+          .forEach((g) => g.classList.remove("open"));
+      });
+    </script>
+  </body>
+</html>
