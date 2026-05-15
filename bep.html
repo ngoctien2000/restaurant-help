@@ -124,32 +124,34 @@
                   <ul>
                     <li>
                       Các món giống nhau nhưng đến từ nhiều mã bàn khác nhau sẽ
-                      được hệ thống gộp chung để bếp xử lý một lần.
+                      được hệ thống gộp chung để bếp xử lý một lần. <br />
+                      Cột <b>THỜI GIAN</b> giúp nhân viên bếp theo dõi món nào
+                      được gọi gần nhất.
+                    </li>
+                    <li>
+                      Cột <b>SỐ LƯỢNG</b> hiển thị số lượng món của mỗi bàn .
                     </li>
                     <li>
                       Cột <b>TỔNG</b> hiển thị tổng số lượng của món sau khi
                       cộng từ nhiều bàn.
                     </li>
-                    <li>
-                      Cột <b>THỜI GIAN</b> giúp nhân viên bếp theo dõi món nào
-                      được gọi gần nhất.
-                    </li>
-                    <li>
-                      Mã bàn vẫn được hiển thị để biết món thuộc bàn nào, tránh
-                      nhầm lẫn khi chế biến.
-                    </li>
+
                     <li>
                       Danh sách được sắp xếp theo thứ tự thời gian giảm dần, món
                       mới nhất nằm ở trên cùng.
                     </li>
                   </ul>
 
-                  <p>
-                    Khi kiểm tra xong, nhân viên bếp bấm nút xác nhận để chuyển
-                    món sang trạng thái đang chế biến.
+                  <p style="color: darkred">
+                    <b
+                      >Khi kiểm tra xong, nhân viên bếp bấm nút xác nhận để
+                      chuyển món sang trạng thái màn hình <b>Đã chế biến</b></b
+                    >
                   </p>
 
-                  <!-- Chèn ảnh minh họa ở cuối khung nội dung này -->
+                  <div class="panel-image">
+                    <img src="img/bep-xacnhan.png" alt="Xác nhận Order" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -171,36 +173,47 @@
 
                   <p>
                     <i>
-                      Đây là khu vực dành cho các món đã hoàn thành và đang chờ
-                      giao cho phục vụ.
+                      Đây là hiển thị chức năng dành cho các món đã hoàn thành
+                      hoặc đang chờ giao cho phục vụ.
                     </i>
                   </p>
 
                   <ul>
                     <li>
-                      Khi món đã chế biến xong, bếp bấm xác nhận để chuyển sang
-                      trạng thái chờ giao.
-                    </li>
-                    <li>
                       Danh sách vẫn giữ nguyên thông tin món, mã bàn và tổng số
-                      lượng để dễ đối chiếu.
-                    </li>
-                    <li>
-                      Các món cùng loại vẫn được gộp chung để bếp theo dõi tập
-                      trung và xử lý nhanh hơn.
-                    </li>
-                    <li>
-                      Trạng thái này giúp phân biệt rõ món nào đã xong, món nào
-                      còn đang làm.
+                      lượng để dễ đối chiếu.Các món cùng loại vẫn được gộp chung
+                      để bếp theo dõi tập trung và xử lý nhanh hơn.
                     </li>
                   </ul>
 
-                  <p>
-                    Sau khi xác nhận, món sẽ chuyển sang khu vực chờ phục vụ
-                    mang ra bàn.
+                  <p style="color: darkred">
+                    <b
+                      >Sau khi xác nhận
+                      <b style="color: green">Dấu tích xanh</b>, món đã được
+                      phục vụ lên cho khách.</b
+                    >
                   </p>
 
-                  <!-- Chèn ảnh minh họa ở cuối khung nội dung này -->
+                  <div class="panel-image">
+                    <img src="img/bep-chebien.png" alt="Xác nhận chế biến" />
+                  </div>
+
+                  <ol start="3">
+                    <li style="font-size: 20px">
+                      Đồng thời , các món sau khi xác nhận sẽ được
+                      <span style="color: red">Icon ĐỎ</span> nghĩa là đang chế
+                      biến , và <span style="color: green">Tích Xanh</span> là
+                      lên món lên cho khách .
+                    </li>
+                  </ol>
+
+                  <div class="panel-image">
+                    <img
+                      src="img/order-lenmon.png"
+                      alt="Xác nhận chế biến"
+                      style="margin-top: 20px"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

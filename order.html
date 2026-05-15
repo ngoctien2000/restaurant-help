@@ -9,24 +9,6 @@
       rel="stylesheet"
     />
     <link href="css/gui.css" rel="stylesheet" />
-    <!-- <style>
-      /* Bản vá lỗi hiển thị ảnh để không bị che khuất */
-      .panel-image, .screenshot-wrapper {
-        height: auto !important; 
-        max-height: none !important;
-        overflow: visible !important;
-        display: block !important;
-        margin: 20px 0;
-      }
-      .panel-image img, .screenshot-wrapper img {
-        width: 100% !important;
-        height: auto !important;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      }
-      .step-container { margin-bottom: 40px; }
-      h3 .material-symbols-outlined { vertical-align: middle; margin-right: 8px; }
-    </style> -->
   </head>
   <body>
     <div aria-hidden="true" class="bg"></div>
@@ -102,6 +84,9 @@
             <span class="material-symbols-outlined">description</span>Chi tiết
             hóa đơn
           </button>
+          <button data-scroll="step-6">
+            <span class="material-symbols-outlined">groups</span>Ghép bàn
+          </button>
         </aside>
 
         <section class="content">
@@ -136,11 +121,7 @@
                       kỳ phù hợp với số lượng người đi cùng khách.
                     </li>
                     <div class="panel-image">
-                      <img
-                        src="img/chon-ban.jpg"
-                        alt="Màn hình sơ đồ bàn"
-                        style="height: 90%"
-                      />
+                      <img src="img/chon-ban.jpg" alt="Màn hình sơ đồ bàn" />
                     </div>
                     <li>
                       Tại màn hình <b>Order</b>, nhấn vào hình ảnh các món ăn để
@@ -149,7 +130,7 @@
                   </ul>
 
                   <div class="panel-image">
-                    <img src="img/goi-mon.jpg" alt="Giao diện gọi món" />
+                    <img src="img/goi-mon.png" alt="Giao diện gọi món" />
                   </div>
                 </div>
               </div>
@@ -179,8 +160,20 @@
                       Order.
                     </li>
                     <li>
-                      Chọn món ăn, số lượng cần tách và chọn bàn đích muốn
-                      chuyển sang, sau đó xác nhận.
+                      Chọn bàn đích
+                      <b>Trống <span style="color: blue">Màu xanh</span> </b>
+                      sẽ hiển thị
+                      <span style="color: orange"> <b>Màu Cam</b></span>
+                      muốn chuyển sang, sau đó xác nhận.
+                    </li>
+                    <li>Có thể <b>tách hóa đơn</b> hoặc không</li>
+                    <li>
+                      Chọn các món muốn chuyển sang bàn mới theo yêu cầu của
+                      khách
+                    </li>
+                    <li>
+                      Nhấn <b style="color: orange">Tách bàn</b> món sẽ chuyển
+                      sang bàn mới và hóa đơn được cập nhật tương ứng
                     </li>
                   </ol>
                   <div class="panel-image">
@@ -211,8 +204,13 @@
                       lý.
                     </li>
                     <li>
-                      Chọn bàn trống muốn chuyển sang từ danh sách thả xuống và
-                      nhấn <strong>Đồng ý</strong>.
+                      Chọn bàn đích
+                      <b>Trống <span style="color: blue">Màu xanh</span></b>
+                      muốn chuyển sang,
+                    </li>
+                    <li>
+                      Nhấn <b style="color: orange">Chuyển bàn</b> để hoàn tất
+                      thao tác.
                     </li>
                   </ol>
                   <div class="panel-image">
@@ -301,6 +299,63 @@
                       alt="Hóa đơn thanh toán"
                       style="width: 50% !important"
                     />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- BƯỚC 6: GHÉP BÀN -->
+            <div class="step-container" id="step-6">
+              <div class="step">
+                <div class="circle">6</div>
+                <div>
+                  <h3>
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                    >
+                      groups
+                    </span>
+                    Thao tác Ghép bàn
+                  </h3>
+
+                  <p>
+                    <i>
+                      Dùng khi khách muốn ghép nhiều bàn lại với nhau để ngồi
+                      chung một khu vực hoặc phục vụ cùng một hóa đơn.
+                    </i>
+                  </p>
+
+                  <ol>
+                    <li>
+                      Nhấn nút
+                      <strong style="color: chocolate">"Ghép bàn"</strong>
+                    </li>
+                    <li>
+                      Chọn bàn trống hoặc bàn phù hợp để ghép, được chọn nhiều
+                      bàn cùng hoặc khác khu vực đều được.
+                    </li>
+                    <li>
+                      Hệ thống hiển thị <strong>Tổng sức chứa</strong> của các
+                      bàn được chọn để kiểm tra trước khi xác nhận.
+                    </li>
+                    <li>
+                      Nhấn <strong style="color: orange">Ghép bàn</strong> để
+                      hoàn tất thao tác, hoặc nhấn <strong>Hủy</strong> để
+                      thoát.
+                    </li>
+                    <p style="color: red">
+                      <i
+                        ><b
+                          >Sau khi ghép xong, bàn mới sẽ được dùng chung cho
+                          việc order,thanh toán hóa đơn và quản lý phục vụ.</b
+                        ></i
+                      >
+                    </p>
+                  </ol>
+
+                  <div class="panel-image">
+                    <img src="img/ghep-ban.png" alt="Popup ghép bàn" />
                   </div>
                 </div>
               </div>

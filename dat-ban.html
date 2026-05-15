@@ -97,14 +97,19 @@
           </button>
           <button data-scroll="step-2">
             <span class="material-symbols-outlined">edit_note</span>
-            Nhập thông tin
+            Đặt bàn
           </button>
           <button data-scroll="step-3">
             <span class="material-symbols-outlined">restaurant_menu</span>
-            Đặt món trước
+            Đặt món
           </button>
-          <!-- thêm vào sidebar, sau nút "Chọn thực đơn đặt trước" -->
           <button data-scroll="step-4">
+            <span class="material-symbols-outlined">group</span>
+            Đặt bàn cho NHIỀU KHÁCH
+          </button>
+
+          <!-- thêm vào sidebar, sau nút "Chọn thực đơn đặt trước" -->
+          <button data-scroll="step-5">
             <span class="material-symbols-outlined">event_note</span>
             Theo dõi đặt bàn
           </button>
@@ -198,9 +203,8 @@
                   </h3>
                   <p>
                     <i
-                      >Nếu khách yêu cầu, nhấn vào nút món đặt trước để mở màn
-                      hình thực đơn. Tại đây, bạn chọn món ăn, card món ăn sẽ
-                      đổi màu xanh để nhận biết đã chọn.
+                      >Nếu khách yêu cầu, nhấn vào nút <b>Món đặt trước</b> để
+                      mở màn hình thực đơn.
                     </i>
                   </p>
                   <ul>
@@ -209,8 +213,9 @@
                       phải.
                     </li>
                     <li>
-                      Nhấn nút <strong>"Đặt món"</strong> (màu hồng) để lưu danh
-                      sách thực đơn vào phiếu.
+                      Nhấn nút
+                      <strong style="color: rgb(178, 60, 72)">"Đặt món"</strong>
+                      để lưu danh sách thực đơn vào phiếu.
                     </li>
                   </ul>
                   <div class="panel-image">
@@ -221,10 +226,81 @@
             </div>
 
             <!-- BƯỚC 4 -->
-            <!-- BƯỚC 4 -->
             <div class="step-container">
               <div class="step" id="step-4">
                 <div class="circle">4</div>
+
+                <div>
+                  <h3>
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                    >
+                      group
+                    </span>
+                    Đặt bàn cho NHIỀU KHÁCH
+                  </h3>
+
+                  <p>
+                    <i>
+                      Chức năng này dùng khi khách đi theo nhóm đông, cần chọn
+                      nhiều bàn liền nhau hoặc ghép các bàn phù hợp với số lượng
+                      người.
+                    </i>
+                  </p>
+
+                  <ol>
+                    <li>
+                      Nhập <strong>số lượng khách</strong> trong phiếu đặt bàn
+                      để hệ thống tính số chỗ cần dùng.
+                    </li>
+
+                    <li>
+                      Nhấn vào nút chọn bàn để mở màn hình danh sách bàn và bắt
+                      đầu chọn các bàncó
+                      <b style="color: gray">màu XÁM-(bàn trống)</b> hoặc các
+                      bàn phù hợp với sức chứa, hệ thống sẽ tô nổi bật những bàn
+                      đã chọn..
+                    </li>
+                  </ol>
+
+                  <div class="panel-image">
+                    <img
+                      src="img/datban-nhieukhach.png"
+                      alt="Đặt bàn cho nhiều khách"
+                    />
+                  </div>
+
+                  <ol start="3">
+                    <li>
+                      Có thể Tích chọn <b>Order Theo Bàn Riêng</b>, gọi món cho
+                      từng bàn
+                    </li>
+                    <li>
+                      Kiểm tra lại thông tin hiển thị như
+                      <strong>đã chọn bao nhiêu bàn</strong>,
+                      <strong>tổng số chỗ</strong> và số món đặt trước nếu có.
+                    </li>
+
+                    <li>
+                      Nhấn nút <strong>"Đặt bàn"</strong> để hoàn tất, hoặc chọn
+                      lại bàn nếu cần điều chỉnh trước khi lưu phiếu.
+                    </li>
+                  </ol>
+
+                  <div class="panel-image" style="margin-top: 18px">
+                    <img
+                      src="img/order-tungban.png"
+                      alt="Chi tiết phiếu đặt bàn nhiều khách"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-container">
+              <div class="step" id="step-5">
+                <div class="circle">5</div>
 
                 <div>
                   <h3>
